@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 11.75" name="VentasLeon">
+  <DataContextMoniker Name="/VentasLeonDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8c011c6e-4c5a-4281-9950-74009a1f4deb" absoluteBounds="9, 3.25, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Abastecimiento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86b4336b-8ff1-47c4-9333-a4a06030f4fd" absoluteBounds="9.015, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1850f875-1223-44fe-a89b-05887243ab03" absoluteBounds="0.75, 5.625, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Vendedor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5235efae-e97e-4dd1-b544-2359f86556f3" absoluteBounds="0.765, 6.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7445dbe2-2a3f-439e-8e2a-1a7f5dd9b519" absoluteBounds="6.25, 6.625, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6de368d3-dd2c-4f37-9f5b-dc9b7c9a7368" absoluteBounds="6.265, 7.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0556bd36-4241-49de-9f88-d66f85a7e72a" absoluteBounds="11.75, 6.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Detalle_Compra" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0527e89-7f79-4abf-b0d9-38b68064f4d9" absoluteBounds="11.765, 6.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="79ae220c-798a-4182-a3d3-4049cd58f00d" absoluteBounds="11.75, 9.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Detalle_Factura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14453668-eae5-406c-8f7a-2eba213db5fa" absoluteBounds="11.765, 10.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d98ad467-ce39-4d79-963e-ada9f4c23fce" absoluteBounds="3.5, 5.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Distrito" />
+      <nestedChildShapes>
+        <elementListCompartment Id="866cdab5-d3ed-47c7-b914-d46305d85f84" absoluteBounds="3.515, 6.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f81b00df-422b-4447-ba50-79c0ab6bf1cf" absoluteBounds="9, 9.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Factura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab18df46-40be-44d0-8457-edebc2ec3187" absoluteBounds="9.015, 9.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d20c0ef-0dac-46a5-b34d-de573ce6cd57" absoluteBounds="9, 6.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Orden_Compra" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7dc1c1a-7a7e-42f6-9498-3a47fc185a7b" absoluteBounds="9.015, 6.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48e192ee-4a50-4b3e-b982-8ee7e49c0f13" absoluteBounds="6.25, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Producto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="885bcefa-48e5-47bb-8003-2dc03ce9ae60" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6226a1c5-23c6-4ddd-8f2c-2c3135741e0f" absoluteBounds="6.25, 4, 2, 1.9631982421875">
+      <DataClassMoniker Name="/VentasLeonDataContext/Tb_Proveedor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c2eaad0-b17d-4891-97ed-cb57343b2991" absoluteBounds="6.265, 4.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.94314697265625); (6.25 : 6.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Distrito/Tb_Distrito_Tb_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="d98ad467-ce39-4d79-963e-ada9f4c23fce" />
+        <classShapeMoniker Id="7445dbe2-2a3f-439e-8e2a-1a7f5dd9b519" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.56814697265625); (3.5 : 6.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Vendedor/Tb_Vendedor_Tb_Distrito" />
+      <nodes>
+        <classShapeMoniker Id="1850f875-1223-44fe-a89b-05887243ab03" />
+        <classShapeMoniker Id="d98ad467-ce39-4d79-963e-ada9f4c23fce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 10.4142976888021); (11.75 : 10.4142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Factura/Tb_Factura_Tb_Detalle_Factura" />
+      <nodes>
+        <classShapeMoniker Id="f81b00df-422b-4447-ba50-79c0ab6bf1cf" />
+        <classShapeMoniker Id="79ae220c-798a-4182-a3d3-4049cd58f00d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 9.1651025390625); (7.25 : 10.4527498372396); (9 : 10.4527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Cliente/Tb_Cliente_Tb_Factura" />
+      <nodes>
+        <classShapeMoniker Id="7445dbe2-2a3f-439e-8e2a-1a7f5dd9b519" />
+        <classShapeMoniker Id="f81b00df-422b-4447-ba50-79c0ab6bf1cf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 7.5881982421875); (1.75 : 9.88262241861979); (7.16666666666667 : 9.88262241861979 : JumpStart); (7.33333333333333 : 9.88262241861979 : JumpEnd); (9 : 9.88262241861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Vendedor/Tb_Vendedor_Tb_Factura" />
+      <nodes>
+        <classShapeMoniker Id="1850f875-1223-44fe-a89b-05887243ab03" />
+        <classShapeMoniker Id="f81b00df-422b-4447-ba50-79c0ab6bf1cf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 7.06814697265625); (11.4166666666667 : 7.06814697265625 : JumpStart); (11.5833333333333 : 7.06814697265625 : JumpEnd); (11.75 : 7.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Orden_Compra/Tb_Orden_Compra_Tb_Detalle_Compra" />
+      <nodes>
+        <classShapeMoniker Id="2d20c0ef-0dac-46a5-b34d-de573ce6cd57" />
+        <classShapeMoniker Id="0556bd36-4241-49de-9f88-d66f85a7e72a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.92390055338542); (10 : 1.92390055338542); (10 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Producto/Tb_Producto_Tb_Abastecimiento" />
+      <nodes>
+        <classShapeMoniker Id="48e192ee-4a50-4b3e-b982-8ee7e49c0f13" />
+        <classShapeMoniker Id="8c011c6e-4c5a-4281-9950-74009a1f4deb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 2.54210333007812); (9.91666666666667 : 2.54210333007812 : JumpStart); (10.0833333333333 : 2.54210333007812 : JumpEnd); (11.4166666666667 : 2.54210333007812 : JumpStart); (11.5833333333333 : 2.54210333007812 : JumpEnd); (12.75 : 2.54210333007812); (12.75 : 6.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Producto/Tb_Producto_Tb_Detalle_Compra" />
+      <nodes>
+        <classShapeMoniker Id="48e192ee-4a50-4b3e-b982-8ee7e49c0f13" />
+        <classShapeMoniker Id="0556bd36-4241-49de-9f88-d66f85a7e72a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.30569827669271); (11.5 : 1.30569827669271); (11.5 : 9.25); (12.75 : 9.25); (12.75 : 9.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Producto/Tb_Producto_Tb_Detalle_Factura" />
+      <nodes>
+        <classShapeMoniker Id="48e192ee-4a50-4b3e-b982-8ee7e49c0f13" />
+        <classShapeMoniker Id="79ae220c-798a-4182-a3d3-4049cd58f00d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.31814697265625); (9 : 4.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Proveedor/Tb_Proveedor_Tb_Abastecimiento" />
+      <nodes>
+        <classShapeMoniker Id="6226a1c5-23c6-4ddd-8f2c-2c3135741e0f" />
+        <classShapeMoniker Id="8c011c6e-4c5a-4281-9950-74009a1f4deb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 5.9631982421875); (8.625 : 6.3381982421875); (8.625 : 5.75); (9 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Proveedor/Tb_Proveedor_Tb_Orden_Compra" />
+      <nodes>
+        <classShapeMoniker Id="6226a1c5-23c6-4ddd-8f2c-2c3135741e0f" />
+        <classShapeMoniker Id="2d20c0ef-0dac-46a5-b34d-de573ce6cd57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 5.875); (4.5 : 4.9374995); (6.25 : 4.9374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasLeonDataContext/Tb_Distrito/Tb_Distrito_Tb_Proveedor" />
+      <nodes>
+        <classShapeMoniker Id="d98ad467-ce39-4d79-963e-ada9f4c23fce" />
+        <classShapeMoniker Id="6226a1c5-23c6-4ddd-8f2c-2c3135741e0f" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

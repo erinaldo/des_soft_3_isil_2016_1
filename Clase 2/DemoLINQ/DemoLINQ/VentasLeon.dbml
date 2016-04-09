@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VentasLeon" Class="VentasLeonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=VentasLeon;Integrated Security=True" SettingsObjectName="DemoLINQ.Properties.Settings" SettingsPropertyName="VentasLeonConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tb_Abastecimiento" Member="Tb_Abastecimiento">
+    <Type Name="Tb_Abastecimiento">
+      <Column Name="Cod_prv" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cod_pro" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pre_Aba" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Producto_Tb_Abastecimiento" Member="Tb_Producto" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Producto" IsForeignKey="true" />
+      <Association Name="Tb_Proveedor_Tb_Abastecimiento" Member="Tb_Proveedor" ThisKey="Cod_prv" OtherKey="Cod_prv" Type="Tb_Proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Vendedor" Member="Tb_Vendedor">
+    <Type Name="Tb_Vendedor">
+      <Column Name="cod_ven" Type="System.String" DbType="NVarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom_ven" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="ape_ven" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="sue_ven" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="fec_ing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tip_ven" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Association Name="Tb_Vendedor_Tb_Distrito" Member="Tb_Distrito" ThisKey="cod_ven" OtherKey="Cod_ven" Type="Tb_Distrito" />
+      <Association Name="Tb_Vendedor_Tb_Factura" Member="Tb_Factura" ThisKey="cod_ven" OtherKey="Cod_ven" Type="Tb_Factura" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Cliente" Member="Tb_Cliente">
+    <Type Name="Tb_Cliente">
+      <Column Name="Cod_cli" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Raz_soc_cli" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Dir_cli" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Tel_cli" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="Ruc_cli" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Cod_dis" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Fec_reg" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Tip_cli" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Contacto" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Cliente_Tb_Factura" Member="Tb_Factura" ThisKey="Cod_cli" OtherKey="Cod_cli" Type="Tb_Factura" />
+      <Association Name="Tb_Distrito_Tb_Cliente" Member="Tb_Distrito" ThisKey="Cod_dis" OtherKey="Cod_dis" Type="Tb_Distrito" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Detalle_Compra" Member="Tb_Detalle_Compra">
+    <Type Name="Tb_Detalle_Compra">
+      <Column Name="Num_oco" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cod_pro" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Can_ped" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tb_Orden_Compra_Tb_Detalle_Compra" Member="Tb_Orden_Compra" ThisKey="Num_oco" OtherKey="Num_oco" Type="Tb_Orden_Compra" IsForeignKey="true" />
+      <Association Name="Tb_Producto_Tb_Detalle_Compra" Member="Tb_Producto" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Detalle_Factura" Member="Tb_Detalle_Factura">
+    <Type Name="Tb_Detalle_Factura">
+      <Column Name="Num_fac" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cod_pro" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Can_ven" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pre_ven" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Factura_Tb_Detalle_Factura" Member="Tb_Factura" ThisKey="Num_fac" OtherKey="Num_fac" Type="Tb_Factura" IsForeignKey="true" />
+      <Association Name="Tb_Producto_Tb_Detalle_Factura" Member="Tb_Producto" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Distrito" Member="Tb_Distrito">
+    <Type Name="Tb_Distrito">
+      <Column Name="Cod_dis" Type="System.String" DbType="NVarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom_dis" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Cod_ven" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Association Name="Tb_Distrito_Tb_Cliente" Member="Tb_Cliente" ThisKey="Cod_dis" OtherKey="Cod_dis" Type="Tb_Cliente" />
+      <Association Name="Tb_Distrito_Tb_Proveedor" Member="Tb_Proveedor" ThisKey="Cod_dis" OtherKey="Cod_dis" Type="Tb_Proveedor" />
+      <Association Name="Tb_Vendedor_Tb_Distrito" Member="Tb_Vendedor" ThisKey="Cod_ven" OtherKey="cod_ven" Type="Tb_Vendedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Factura" Member="Tb_Factura">
+    <Type Name="Tb_Factura">
+      <Column Name="Num_fac" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Fec_fac" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Cod_cli" Type="System.String" DbType="NVarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Fec_can" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Est_fac" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Cod_ven" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Por_Igv" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Tb_Factura_Tb_Detalle_Factura" Member="Tb_Detalle_Factura" ThisKey="Num_fac" OtherKey="Num_fac" Type="Tb_Detalle_Factura" />
+      <Association Name="Tb_Cliente_Tb_Factura" Member="Tb_Cliente" ThisKey="Cod_cli" OtherKey="Cod_cli" Type="Tb_Cliente" IsForeignKey="true" />
+      <Association Name="Tb_Vendedor_Tb_Factura" Member="Tb_Vendedor" ThisKey="Cod_ven" OtherKey="cod_ven" Type="Tb_Vendedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Orden_Compra" Member="Tb_Orden_Compra">
+    <Type Name="Tb_Orden_Compra">
+      <Column Name="Num_oco" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Fec_oco" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Cod_prv" Type="System.String" DbType="NVarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Fec_ate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Est_oco" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Orden_Compra_Tb_Detalle_Compra" Member="Tb_Detalle_Compra" ThisKey="Num_oco" OtherKey="Num_oco" Type="Tb_Detalle_Compra" />
+      <Association Name="Tb_Proveedor_Tb_Orden_Compra" Member="Tb_Proveedor" ThisKey="Cod_prv" OtherKey="Cod_prv" Type="Tb_Proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Producto" Member="Tb_Producto">
+    <Type Name="Tb_Producto">
+      <Column Name="Cod_pro" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Des_pro" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Pre_pro" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Stk_act" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stk_min" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Uni_med" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Lin_pro" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Importado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Producto_Tb_Abastecimiento" Member="Tb_Abastecimiento" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Abastecimiento" />
+      <Association Name="Tb_Producto_Tb_Detalle_Compra" Member="Tb_Detalle_Compra" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Detalle_Compra" />
+      <Association Name="Tb_Producto_Tb_Detalle_Factura" Member="Tb_Detalle_Factura" ThisKey="Cod_pro" OtherKey="Cod_pro" Type="Tb_Detalle_Factura" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Proveedor" Member="Tb_Proveedor">
+    <Type Name="Tb_Proveedor">
+      <Column Name="Cod_prv" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Raz_soc_prv" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Dir_prv" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Tel_prv" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="Cod_dis" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Rep_ven" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Tb_Proveedor_Tb_Abastecimiento" Member="Tb_Abastecimiento" ThisKey="Cod_prv" OtherKey="Cod_prv" Type="Tb_Abastecimiento" />
+      <Association Name="Tb_Proveedor_Tb_Orden_Compra" Member="Tb_Orden_Compra" ThisKey="Cod_prv" OtherKey="Cod_prv" Type="Tb_Orden_Compra" />
+      <Association Name="Tb_Distrito_Tb_Proveedor" Member="Tb_Distrito" ThisKey="Cod_dis" OtherKey="Cod_dis" Type="Tb_Distrito" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
