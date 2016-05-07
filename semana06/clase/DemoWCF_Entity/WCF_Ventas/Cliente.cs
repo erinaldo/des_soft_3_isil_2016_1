@@ -37,7 +37,29 @@ namespace WCF_Ventas
 
         public List<ClienteBE> ListarRazonSocialCliente()
         {
-            throw new NotImplementedException();
+            VentasLeonEntities1 MisVentas = new VentasLeonEntities1();
+            List<ClienteBE> objListaCliente = new List<ClienteBE>();
+
+            try {
+                var query = from objcliente in MisVentas.Tb_Cliente
+                            orderby objcliente.Raz_soc_cli
+                            select new { Codigo = objcliente.Cod_cli, RSocial = objcliente.Raz_soc_cli };
+
+                foreach (var resultado in query) {
+                    ClienteBE obj = new ClienteBE();
+
+                    obj.codCli = resultado.Codigo;
+                    obj.RazSocCli = resultado.RSocial;
+
+                    objListaCliente.Add(obj);
+                }
+
+            }
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
+            }
+
+            return objListaCliente;
         }
     }
 }
