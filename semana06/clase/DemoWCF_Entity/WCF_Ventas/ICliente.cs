@@ -14,8 +14,10 @@ namespace WCF_Ventas
         [OperationContract]
         Single CalcularDeudaCliente(String strCod);
 
+        [OperationContract]
         List<ClienteBE> ListarRazonSocialCliente();
 
+        [OperationContract]
         Single CalcularDeudaClienteLINQ(String strCod);
     }
 
