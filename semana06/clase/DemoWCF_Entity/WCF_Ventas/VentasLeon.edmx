@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VentasLeonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tb_Cliente">
+          <Key>
+            <PropertyRef Name="Cod_cli" />
+          </Key>
+          <Property Name="Cod_cli" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Raz_soc_cli" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Dir_cli" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Tel_cli" Type="nvarchar" MaxLength="8" />
+          <Property Name="Ruc_cli" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Cod_dis" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Fec_reg" Type="datetime" Nullable="false" />
+          <Property Name="Tip_cli" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Contacto" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Vendedor">
+          <Key>
+            <PropertyRef Name="cod_ven" />
+          </Key>
+          <Property Name="cod_ven" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="nom_ven" Type="nvarchar" MaxLength="25" />
+          <Property Name="ape_ven" Type="nvarchar" MaxLength="25" />
+          <Property Name="sue_ven" Type="money" />
+          <Property Name="fec_ing" Type="datetime" />
+          <Property Name="tip_ven" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'VentasLeon.dbo.vw_VistaFacturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaFacturas">
+          <Key>
+            <PropertyRef Name="Num_fac" />
+            <PropertyRef Name="Fec_fac" />
+            <PropertyRef Name="Cod_cli" />
+            <PropertyRef Name="Raz_soc_cli" />
+            <PropertyRef Name="Est_fac" />
+          </Key>
+          <Property Name="Num_fac" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Fec_fac" Type="datetime" Nullable="false" />
+          <Property Name="Fec_can" Type="datetime" />
+          <Property Name="Cod_cli" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Raz_soc_cli" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Est_fac" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="9" />
+          <Property Name="Cod_ven" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <Function Name="usp_ListarFacturasClienteFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codcli" Type="char" Mode="In" />
+          <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarFacturasVendedorFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codven" Type="char" Mode="In" />
+          <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="VentasLeonModelStoreContainer">
+          <EntitySet Name="Tb_Cliente" EntityType="Self.Tb_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Vendedor" EntityType="Self.Tb_Vendedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_VistaFacturas" EntityType="Self.vw_VistaFacturas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_VistaFacturas].[Num_fac] AS [Num_fac], 
+[vw_VistaFacturas].[Fec_fac] AS [Fec_fac], 
+[vw_VistaFacturas].[Fec_can] AS [Fec_can], 
+[vw_VistaFacturas].[Cod_cli] AS [Cod_cli], 
+[vw_VistaFacturas].[Raz_soc_cli] AS [Raz_soc_cli], 
+[vw_VistaFacturas].[Total] AS [Total], 
+[vw_VistaFacturas].[Est_fac] AS [Est_fac], 
+[vw_VistaFacturas].[Estado] AS [Estado], 
+[vw_VistaFacturas].[Cod_ven] AS [Cod_ven]
+FROM [dbo].[vw_VistaFacturas] AS [vw_VistaFacturas]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VentasLeonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tb_Cliente">
+          <Key>
+            <PropertyRef Name="Cod_cli" />
+          </Key>
+          <Property Name="Cod_cli" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Raz_soc_cli" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dir_cli" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel_cli" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Ruc_cli" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cod_dis" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fec_reg" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tip_cli" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contacto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Vendedor">
+          <Key>
+            <PropertyRef Name="cod_ven" />
+          </Key>
+          <Property Name="cod_ven" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nom_ven" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ape_ven" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="sue_ven" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fec_ing" Type="DateTime" Precision="3" />
+          <Property Name="tip_ven" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_VistaFacturas">
+          <Key>
+            <PropertyRef Name="Num_fac" />
+            <PropertyRef Name="Fec_fac" />
+            <PropertyRef Name="Cod_cli" />
+            <PropertyRef Name="Raz_soc_cli" />
+            <PropertyRef Name="Est_fac" />
+          </Key>
+          <Property Name="Num_fac" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fec_fac" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fec_can" Type="DateTime" Precision="3" />
+          <Property Name="Cod_cli" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Raz_soc_cli" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Est_fac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Cod_ven" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="VentasLeonEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tb_Cliente" EntityType="Self.Tb_Cliente" />
+          <EntitySet Name="Tb_Vendedor" EntityType="Self.Tb_Vendedor" />
+          <EntitySet Name="vw_VistaFacturas" EntityType="Self.vw_VistaFacturas" />
+          <FunctionImport Name="usp_ListarFacturasClienteFechas" ReturnType="Collection(VentasLeonModel.usp_ListarFacturasClienteFechas_Result)">
+            <Parameter Name="codcli" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarFacturasVendedorFechas" ReturnType="Collection(VentasLeonModel.usp_ListarFacturasVendedorFechas_Result)">
+            <Parameter Name="codven" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ListarFacturasClienteFechas" ReturnType="Collection(VentasLeonModel.usp_ListarFacturasClienteFechas_Result)">
+            <Parameter Name="codcli" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ListarFacturasVendedorFechas" ReturnType="Collection(VentasLeonModel.usp_ListarFacturasVendedorFechas_Result)">
+            <Parameter Name="codven" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_ListarFacturasClienteFechas_Result">
+          <Property Type="String" Name="num_fac" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="fec_fac" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fec_can" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="total" Nullable="true" />
+          <Property Type="String" Name="estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarFacturasVendedorFechas_Result">
+          <Property Type="String" Name="num_fac" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="fec_fac" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fec_can" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="total" Nullable="true" />
+          <Property Type="String" Name="estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VentasLeonModelStoreContainer" CdmEntityContainer="VentasLeonEntities1">
+          <EntitySetMapping Name="Tb_Cliente">
+            <EntityTypeMapping TypeName="VentasLeonModel.Tb_Cliente">
+              <MappingFragment StoreEntitySet="Tb_Cliente">
+                <ScalarProperty Name="Cod_cli" ColumnName="Cod_cli" />
+                <ScalarProperty Name="Raz_soc_cli" ColumnName="Raz_soc_cli" />
+                <ScalarProperty Name="Dir_cli" ColumnName="Dir_cli" />
+                <ScalarProperty Name="Tel_cli" ColumnName="Tel_cli" />
+                <ScalarProperty Name="Ruc_cli" ColumnName="Ruc_cli" />
+                <ScalarProperty Name="Cod_dis" ColumnName="Cod_dis" />
+                <ScalarProperty Name="Fec_reg" ColumnName="Fec_reg" />
+                <ScalarProperty Name="Tip_cli" ColumnName="Tip_cli" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Vendedor">
+            <EntityTypeMapping TypeName="VentasLeonModel.Tb_Vendedor">
+              <MappingFragment StoreEntitySet="Tb_Vendedor">
+                <ScalarProperty Name="cod_ven" ColumnName="cod_ven" />
+                <ScalarProperty Name="nom_ven" ColumnName="nom_ven" />
+                <ScalarProperty Name="ape_ven" ColumnName="ape_ven" />
+                <ScalarProperty Name="sue_ven" ColumnName="sue_ven" />
+                <ScalarProperty Name="fec_ing" ColumnName="fec_ing" />
+                <ScalarProperty Name="tip_ven" ColumnName="tip_ven" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VistaFacturas">
+            <EntityTypeMapping TypeName="VentasLeonModel.vw_VistaFacturas">
+              <MappingFragment StoreEntitySet="vw_VistaFacturas">
+                <ScalarProperty Name="Num_fac" ColumnName="Num_fac" />
+                <ScalarProperty Name="Fec_fac" ColumnName="Fec_fac" />
+                <ScalarProperty Name="Fec_can" ColumnName="Fec_can" />
+                <ScalarProperty Name="Cod_cli" ColumnName="Cod_cli" />
+                <ScalarProperty Name="Raz_soc_cli" ColumnName="Raz_soc_cli" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Est_fac" ColumnName="Est_fac" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cod_ven" ColumnName="Cod_ven" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarFacturasClienteFechas" FunctionName="VentasLeonModel.Store.usp_ListarFacturasClienteFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VentasLeonModel.usp_ListarFacturasClienteFechas_Result">
+                <ScalarProperty Name="num_fac" ColumnName="num_fac" />
+                <ScalarProperty Name="fec_fac" ColumnName="fec_fac" />
+                <ScalarProperty Name="fec_can" ColumnName="fec_can" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarFacturasVendedorFechas" FunctionName="VentasLeonModel.Store.usp_ListarFacturasVendedorFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VentasLeonModel.usp_ListarFacturasVendedorFechas_Result">
+                <ScalarProperty Name="num_fac" ColumnName="num_fac" />
+                <ScalarProperty Name="fec_fac" ColumnName="fec_fac" />
+                <ScalarProperty Name="fec_can" ColumnName="fec_can" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarFacturasClienteFechas" FunctionName="VentasLeonModel.Store.usp_ListarFacturasClienteFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VentasLeonModel.usp_ListarFacturasClienteFechas_Result">
+                <ScalarProperty Name="num_fac" ColumnName="num_fac" />
+                <ScalarProperty Name="fec_fac" ColumnName="fec_fac" />
+                <ScalarProperty Name="fec_can" ColumnName="fec_can" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarFacturasVendedorFechas" FunctionName="VentasLeonModel.Store.usp_ListarFacturasVendedorFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VentasLeonModel.usp_ListarFacturasVendedorFechas_Result">
+                <ScalarProperty Name="num_fac" ColumnName="num_fac" />
+                <ScalarProperty Name="fec_fac" ColumnName="fec_fac" />
+                <ScalarProperty Name="fec_can" ColumnName="fec_can" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
